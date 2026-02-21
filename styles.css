@@ -261,7 +261,7 @@ a {
   z-index: 2;
   max-width: 1440px;
   margin: 0 auto;
-  padding: 80px 135px 110px;
+  padding: 80px 135px 90px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -318,6 +318,7 @@ a {
   height: 170px;
   object-fit: contain;
   display: block;
+  mix-blend-mode: lighten;
 }
 
 /* Row 2: headline + CTA + subtext */
@@ -328,6 +329,21 @@ a {
   flex-direction: column;
   align-items: center;
   gap: 30px; /* Figma gap=30 inside Frame 1272629701 */
+}
+
+.hero__headline-wrap {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.hero__accent {
+  position: absolute;
+  left: 25px;
+  top: -19px;
+  width: 51px;
+  height: 55px;
+  pointer-events: none;
 }
 
 .hero__headline {
@@ -397,7 +413,7 @@ a {
    TICKER / SCROLLING BANNER
    =========================== */
 .ticker {
-  background: var(--red);
+  background: var(--blue);
   overflow: hidden;
   padding: 14px 0;
 }
