@@ -312,14 +312,6 @@ a {
   white-space: nowrap;
 }
 
-/* ---- Bomb comp image (Figma: 500×170 "Bomb Comp 1") ---- */
-.hero__bomb-comp {
-  width: 500px;
-  height: 170px;
-  object-fit: contain;
-  display: block;
-  mix-blend-mode: lighten;
-}
 
 /* Row 2: headline + CTA + subtext */
 .hero__bottom {
@@ -1279,7 +1271,6 @@ a {
   .offer-badge__ear--left { border-right-width: 22px; }
   .offer-badge__ear--right { border-left-width: 22px; }
 
-  .hero__bomb-comp { width: 280px; height: auto; }
 
   /* Services */
   .services__inner { padding: 60px 20px 48px; gap: 24px; }
