@@ -973,15 +973,15 @@ a {
   box-shadow: 0 4px 16px rgba(0,0,0,0.08);
 }
 
-.brand-item img {
-  max-height: 50px;
-  max-width: 120px;
+.brand-item--logo img {
+  max-height: 44px;
+  max-width: 130px;
   object-fit: contain;
   filter: grayscale(100%);
   transition: filter 0.2s;
 }
 
-.brand-item:hover img {
+.brand-item--logo:hover img {
   filter: grayscale(0%);
 }
 
@@ -990,6 +990,7 @@ a {
   font-weight: 700;
   color: #333;
   letter-spacing: 0.02em;
+  min-height: 44px;
 }
 
 /* ===========================
