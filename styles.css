@@ -932,53 +932,76 @@ a {
 }
 
 /* ===========================
-   CTA SECTION
+   CTA HVAC SECTION
    =========================== */
-.cta-section {
+.cta-hvac {
   position: relative;
-  min-height: 440px;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  background: #111;
+  background: linear-gradient(to bottom, rgb(1,46,153), rgb(2,78,255));
+  min-height: 547px;
+  overflow: visible;
 }
 
-.cta-section__bg {
+.cta-hvac__wave {
   position: absolute;
-  inset: 0;
-}
-
-.cta-section__bg img {
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0.4;
+  height: 100px;
+  display: block;
 }
 
-.cta-section__overlay {
+.cta-hvac__truck {
   position: absolute;
-  inset: 0;
-  background: linear-gradient(to right, rgba(0,0,0,0.85) 50%, rgba(0,0,0,0.4) 100%);
+  right: 135px;
+  top: -42px;
+  width: 474px;
+  height: 493px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 14px 14px 34px rgba(0,0,0,0.20);
+  pointer-events: none;
 }
 
-.cta-section__content {
+.cta-hvac__content {
   position: relative;
   z-index: 2;
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 200px 135px 100px;
   display: flex;
   flex-direction: column;
-  gap: 24px;
-  padding-top: 80px;
-  padding-bottom: 80px;
+  gap: 30px;
 }
 
-.cta-section__desc {
-  font-size: clamp(20px, 2vw, 28px);
+.cta-hvac__text {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 605px;
+}
+
+.cta-hvac__heading {
+  font-size: 70px;
+  font-weight: 900;
+  color: #fff;
+  line-height: 1;
+}
+
+.cta-hvac__underline {
+  display: block;
+  width: 217px;
+  height: 14px;
+}
+
+.cta-hvac__desc {
+  font-size: 24px;
   font-weight: 400;
-  color: rgba(255,255,255,0.9);
-  max-width: 600px;
+  color: #fff;
+  line-height: 1.4;
 }
 
-.cta-section__phone {
+.cta-hvac__desc a {
   color: #fff;
   font-weight: 700;
   text-decoration: underline;
@@ -1286,6 +1309,11 @@ a {
   .services__cards { width: 100%; }
   .services__image-col { min-height: 400px; }
 
+  /* CTA HVAC tablet */
+  .cta-hvac__truck { width: 300px; height: 312px; right: 40px; top: -20px; }
+  .cta-hvac__content { padding: 160px 40px 80px; }
+  .cta-hvac__heading { font-size: 50px; }
+
   /* Other sections */
   .where-we-operate { grid-template-columns: 1fr; }
   .where-we-operate__map { height: 320px; }
@@ -1345,7 +1373,12 @@ a {
   .brands { padding: 64px 0; }
   .brands__logos { gap: 12px; }
   .brand-item { min-width: 100px; padding: 14px 20px; }
-  .cta-section__content { padding-top: 60px; padding-bottom: 60px; text-align: center; align-items: center; }
+  /* CTA HVAC mobile */
+  .cta-hvac { min-height: auto; overflow: hidden; }
+  .cta-hvac__truck { display: none; }
+  .cta-hvac__content { padding: 80px 20px 60px; }
+  .cta-hvac__heading { font-size: 36px; }
+  .cta-hvac__desc { font-size: 18px; }
   .footer__inner { grid-template-columns: 1fr; gap: 32px; }
   .get-in-touch { padding: 64px 0; }
   .section__title { font-size: 32px; }
