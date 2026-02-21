@@ -103,6 +103,7 @@ a {
   border: none;
   transition: background 0.2s, color 0.2s, transform 0.15s;
   white-space: nowrap;
+  text-transform: uppercase;
 }
 
 .btn:hover { transform: translateY(-1px); }
@@ -379,6 +380,7 @@ a {
   border-radius: 8px;
   white-space: nowrap;
   transition: background 0.2s;
+  text-transform: uppercase;
 }
 
 .glow-btn-inner:hover {
