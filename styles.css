@@ -312,95 +312,12 @@ a {
   white-space: nowrap;
 }
 
-/* ---- Countdown ---- */
-.countdown-block {
-  width: 100%;
-  max-width: 1170px;
-  display: flex;
-  justify-content: center;
-}
-
-.countdown-inner {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-  background: rgba(0,0,0,0.5);
-  border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 16px;
-  padding: 20px 32px;
-}
-
-.countdown-bomb-img {
-  width: 90px;
-  flex-shrink: 0;
+/* ---- Bomb comp image (Figma: 500×170 "Bomb Comp 1") ---- */
+.hero__bomb-comp {
+  width: 500px;
+  height: 170px;
   object-fit: contain;
-}
-
-.countdown-body {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.countdown-offer-title {
-  font-size: 22px;
-  font-weight: 900;
-  color: #fff;
-  line-height: 1.2;
-}
-
-.countdown-offer-sub {
-  font-size: 15px;
-  color: rgba(255,255,255,0.7);
-}
-
-.countdown-expires-label {
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: rgba(255,255,255,0.5);
-  margin-top: 8px;
-}
-
-.countdown-units {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  margin-top: 4px;
-}
-
-.countdown-unit {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2px;
-}
-
-.countdown-num {
-  font-size: 32px;
-  font-weight: 900;
-  color: #fff;
-  min-width: 56px;
-  text-align: center;
-  background: rgba(255,255,255,0.12);
-  border-radius: 6px;
-  padding: 4px 6px;
-  font-variant-numeric: tabular-nums;
-}
-
-.countdown-unit-lbl {
-  font-size: 9px;
-  color: rgba(255,255,255,0.5);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-}
-
-.countdown-colon {
-  font-size: 28px;
-  font-weight: 900;
-  color: rgba(255,255,255,0.35);
-  margin-bottom: 14px;
-  line-height: 1;
+  display: block;
 }
 
 /* Row 2: headline + CTA + subtext */
@@ -1346,10 +1263,7 @@ a {
   .offer-badge__ear--left { border-right-width: 22px; }
   .offer-badge__ear--right { border-left-width: 22px; }
 
-  .countdown-inner { flex-direction: column; text-align: center; padding: 20px; gap: 12px; }
-  .countdown-bomb-img { width: 60px; }
-  .countdown-units { justify-content: center; flex-wrap: wrap; }
-  .countdown-num { font-size: 24px; min-width: 44px; }
+  .hero__bomb-comp { width: 280px; height: auto; }
 
   /* Services */
   .services__inner { padding: 60px 20px 48px; gap: 24px; }
