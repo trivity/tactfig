@@ -426,49 +426,70 @@
       <img src="images/banner_image.jpg" alt="" />
       <div class="footer__overlay"></div>
     </div>
-    <div class="container footer__inner">
 
-      <!-- Column 1: Brand -->
-      <div class="footer__brand">
-        <div class="footer__owner-wrap">
-          <img src="images/owner-photo.png" alt="Owner of Tactical Heating and Air" class="footer__owner" />
-          <h3 class="footer__brand-name">Tactical Heating and Air</h3>
-        </div>
+    <!-- Brand section: centered name + description -->
+    <div class="footer__brand-section">
+      <div class="container footer__brand-inner">
+        <h3 class="footer__brand-name">Tactical Heating and Air</h3>
         <p class="footer__brand-desc">Tactical Heating and Air is the most trusted Heating, Ventilation, and Air Conditioning (A/C) service provider in the greater Nashville area.</p>
       </div>
-
-      <!-- Column 2: Contact -->
-      <div class="footer__contact">
-        <h4 class="footer__col-heading">Contact Us</h4>
-        <div class="footer__contact-item">
-          <span class="footer__contact-label">Phone</span>
-          <a href="tel:6152937633" class="footer__contact-value">(615) 293-7633</a>
-        </div>
-        <div class="footer__contact-item">
-          <span class="footer__contact-label">Email</span>
-          <a href="mailto:crmudbug@comcast.net" class="footer__contact-value">crmudbug@comcast.net</a>
-        </div>
-        <div class="footer__contact-item">
-          <span class="footer__contact-label">Address</span>
-          <span class="footer__contact-value">203 Charlotte Everly Circle,<br>Hendersonville TN 37075</span>
-        </div>
-      </div>
-
-      <!-- Column 3: Links -->
-      <div class="footer__links">
-        <h4 class="footer__col-heading">Quick Links</h4>
-        <a href="#home">Home</a>
-        <a href="#services">Services</a>
-        <a href="#reviews">Reviews</a>
-        <a href="#service-area">Service Area</a>
-        <a href="#quote">Contact</a>
-        <a href="https://www.facebook.com/tacticalheatingandair" target="_blank" class="footer__social">Facebook</a>
-      </div>
-
     </div>
+
+    <!-- 3-column contact blocks with icons -->
+    <div class="container">
+      <div class="footer__contact-row">
+
+        <div class="footer__contact-block">
+          <div class="footer__contact-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.27-.27.68-.36 1.02-.22 1.12.44 2.33.68 3.58.68.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.29 21 3 13.71 3 4.5c0-.55.45-1 1-1H7.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.34.03.73-.22 1.02L6.6 10.8z"/></svg>
+          </div>
+          <div class="footer__contact-info">
+            <span class="footer__contact-label">PHONE:</span>
+            <a href="tel:6152937633" class="footer__contact-value">(615) 293-7633</a>
+          </div>
+        </div>
+
+        <div class="footer__contact-block">
+          <div class="footer__contact-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          </div>
+          <div class="footer__contact-info">
+            <span class="footer__contact-label">EMAIL:</span>
+            <a href="mailto:crmudbug@comcast.net" class="footer__contact-value">crmudbug@comcast.net</a>
+          </div>
+        </div>
+
+        <div class="footer__contact-block">
+          <div class="footer__contact-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          </div>
+          <div class="footer__contact-info">
+            <span class="footer__contact-label">ADDRESS:</span>
+            <span class="footer__contact-value">203 Charlotte Everly Circle, Hendersonville TN 37075</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Bottom bar: copyright + social icons -->
     <div class="footer__bottom">
-      <p>© Tactical Heating and Air 2022–2026. All rights reserved.</p>
+      <div class="container footer__bottom-inner">
+        <p>© <strong>Tactical Heating and Air</strong> 2022-2026. All rights reserved.</p>
+        <div class="footer__socials">
+          <a href="https://www.facebook.com/tacticalheatingandair" target="_blank" class="footer__social-btn" aria-label="Facebook">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="https://g.page/r/tacticalheatingandair" target="_blank" class="footer__social-btn footer__social-btn--google" aria-label="Google">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M21.35 11.1H12.18v2.73h5.32c-.49 2.43-2.64 3.92-5.32 3.92-3.22 0-5.83-2.68-5.83-5.97 0-3.29 2.61-5.97 5.83-5.97 1.52 0 2.89.59 3.91 1.54l2.03-2.03C16.57 3.73 14.47 3 12.18 3 6.98 3 2.75 7.23 2.75 12.4c0 5.17 4.23 9.4 9.43 9.4 5.45 0 9.07-3.84 9.07-9.24 0-.55-.06-1.03-.15-1.46z"/></svg>
+          </a>
+          <a href="tel:6152937633" class="footer__social-btn" aria-label="Call us">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.27-.27.68-.36 1.02-.22 1.12.44 2.33.68 3.58.68.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.29 21 3 13.71 3 4.5c0-.55.45-1 1-1H7.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.34.03.73-.22 1.02L6.6 10.8z"/></svg>
+          </a>
+        </div>
+      </div>
     </div>
+
   </footer>
 
   <script src="main.js"></script>
