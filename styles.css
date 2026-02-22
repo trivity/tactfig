@@ -999,59 +999,55 @@ a {
    WHERE WE OPERATE
    =========================== */
 .where-we-operate {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  min-height: 600px;
-  overflow: hidden;
   background: #fff;
-}
-
-.where-we-operate__map {
+  padding: 96px 0 80px;
   overflow: hidden;
-  position: relative;
 }
 
-.where-we-operate__map img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-}
-
-.where-we-operate__content {
+.where-we-operate__header {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  padding: 80px 24px;
-  background: var(--gray-light);
+  gap: 32px;
+  margin-bottom: 48px;
 }
 
 .where-we-operate__text {
   display: flex;
   flex-direction: column;
-  gap: 24px;
-  max-width: 480px;
+  gap: 14px;
 }
 
-.service-areas {
-  list-style: none;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px 24px;
+.where-we-operate__underline {
+  width: 150px;
+  height: 10px;
 }
 
-.service-areas li {
-  font-size: 16px;
-  color: #333;
-  padding-left: 20px;
+.where-we-operate__map-card {
   position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.12);
 }
 
-.service-areas li::before {
-  content: "✓";
+.where-we-operate__map-card img {
+  width: 100%;
+  display: block;
+  height: 480px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.where-we-operate__circle {
   position: absolute;
-  left: 0;
-  color: var(--red);
-  font-weight: 700;
+  top: 50%;
+  left: 42%;
+  transform: translate(-50%, -50%);
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  border: 2px solid rgba(0, 0, 0, 0.45);
+  pointer-events: none;
 }
 
 /* ===========================
@@ -1244,9 +1240,9 @@ a {
   .cta-hvac__heading { font-size: 50px; }
 
   /* Other sections */
-  .where-we-operate { grid-template-columns: 1fr; }
-  .where-we-operate__map { height: 320px; }
-  .where-we-operate__content { justify-content: center; }
+  .where-we-operate__header { flex-direction: column; align-items: flex-start; }
+  .where-we-operate__map-card img { height: 360px; }
+  .where-we-operate__circle { width: 200px; height: 200px; }
   .footer__inner { grid-template-columns: 1fr 1fr; }
 
   .give-review__photo { width: 100%; max-width: 400px; margin: 0 auto; }
