@@ -1062,34 +1062,31 @@ a {
   display: flex;
   gap: 64px;
   align-items: center;
-  flex-wrap: wrap;
 }
 
 .get-in-touch__text {
   flex: 1;
-  min-width: 300px;
   display: flex;
   flex-direction: column;
-  gap: 28px;
+  gap: 20px;
 }
 
-.get-in-touch__buttons {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  align-items: flex-start;
+.get-in-touch__underline {
+  width: 150px;
+  height: 10px;
 }
 
 .get-in-touch__photo {
   flex-shrink: 0;
-  width: min(500px, 45vw);
+  width: min(480px, 45vw);
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12);
 }
 
 .get-in-touch__photo img {
   width: 100%;
+  display: block;
   object-fit: cover;
 }
 
@@ -1249,9 +1246,8 @@ a {
   .give-review__inner { flex-direction: column-reverse; align-items: center; text-align: center; }
   .give-review__buttons { justify-content: center; }
 
-  .get-in-touch__photo { width: 100%; max-width: 500px; margin: 0 auto; }
-  .get-in-touch__inner { flex-direction: column; align-items: center; text-align: center; }
-  .get-in-touch__buttons { align-items: center; }
+  .get-in-touch__inner { flex-direction: column; }
+  .get-in-touch__photo { width: 100%; }
 }
 
 /* ===========================
