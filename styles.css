@@ -58,6 +58,57 @@ a {
   position: relative;
 }
 
+/* ===========================
+   SHARED ACCENT + UNDERLINE
+   =========================== */
+
+/* Wrapper that gives the accent its absolute positioning anchor.
+   padding-bottom creates clearance so the absolute underline doesn't overlap content below. */
+.section__title-wrap,
+.services__title-wrap {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 22px;
+}
+
+/* Accent mark — dark version (light-bg sections) */
+.section__accent {
+  position: absolute;
+  top: -20px;
+  left: -8px;
+  width: 38px;
+  height: 42px;
+  filter: brightness(0);
+  pointer-events: none;
+}
+
+/* White version — dark-bg sections (reviews, CTA) */
+.section__accent--white {
+  filter: none;
+}
+
+/* Inline span wrapping the last word so the underline anchors below it */
+.title-last-word {
+  position: relative;
+  display: inline-block;
+}
+
+/* Underline SVG positioned flush below the last word */
+.title-underline {
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 217px;
+  height: 14px;
+  display: block;
+  overflow: visible;
+}
+
+/* White underline variant (reviews, CTA) needs no extra rule — fill is set inline */
+
+/* ===========================
+   SECTION HEADER
+   =========================== */
 .section__header {
   text-align: center;
   margin-bottom: 56px;
@@ -464,19 +515,19 @@ a {
   max-width: 696px;
 }
 
+/* .services__title-wrap inherits position/display/padding-bottom from the shared rule above;
+   margin-bottom creates space between the title block and the description paragraph. */
 .services__title-wrap {
-  position: relative;
-  display: inline-block;
   margin-bottom: 14px;
 }
 
-/* Accent icon positioned beside "Services" (top-right of the word) */
+/* Services accent reuses .section__accent — no extra rule needed */
 .services__accent {
   position: absolute;
-  top: -14px;
-  left: 310px;
-  width: 40px;
-  height: 44px;
+  top: -20px;
+  left: -8px;
+  width: 38px;
+  height: 42px;
   filter: brightness(0);
   pointer-events: none;
 }
@@ -643,6 +694,9 @@ a {
 .reviews__header {
   text-align: center;
   margin-bottom: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .reviews__subtitle {
@@ -943,11 +997,7 @@ a {
   line-height: 1;
 }
 
-.cta-hvac__underline {
-  display: block;
-  width: 217px;
-  height: 14px;
-}
+/* .cta-hvac__underline removed — underline now uses .title-underline inside .title-last-word */
 
 .cta-hvac__desc {
   font-size: 24px;
@@ -1045,10 +1095,7 @@ a {
   gap: 14px;
 }
 
-.where-we-operate__underline {
-  width: 150px;
-  height: 10px;
-}
+/* .where-we-operate__underline removed — underline now uses .title-underline inside .title-last-word */
 
 .where-we-operate__map-card {
   position: relative;
@@ -1098,10 +1145,7 @@ a {
   gap: 20px;
 }
 
-.get-in-touch__underline {
-  width: 150px;
-  height: 10px;
-}
+/* .get-in-touch__underline removed — underline now uses .title-underline inside .title-last-word */
 
 .get-in-touch__photo {
   flex-shrink: 0;
