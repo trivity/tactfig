@@ -1119,7 +1119,7 @@ a {
 .where-we-operate__circle {
   position: absolute;
   top: 50%;
-  left: 42%;
+  left: 50%;
   transform: translate(-50%, -50%);
   width: 472px;
   height: 472px;
@@ -1371,7 +1371,7 @@ a.footer__contact-value:hover {
   .footer__bottom-inner { flex-direction: column; gap: 16px; text-align: center; padding: 24px 0; }
 
   .give-review__photo { width: 100%; max-width: 400px; margin: 0 auto; }
-  .give-review__inner { flex-direction: column-reverse; align-items: center; text-align: center; }
+  .give-review__inner { flex-direction: column; align-items: center; text-align: center; }
   .give-review__buttons { justify-content: center; }
 
   .get-in-touch__inner { flex-direction: column; }
