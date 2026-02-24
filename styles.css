@@ -209,6 +209,10 @@ a {
 /* ===========================
    NAVIGATION
    =========================== */
+/* Nav glow button: inner 50px (13px padding) so outer reaches ~70px — fits 80px nav */
+.nav .glow-btn-inner {
+  padding: 13px 25px;
+}
 .nav {
   position: fixed;
   top: 0;
@@ -360,7 +364,7 @@ a {
   font-size: 30px;
   font-weight: 900;
   line-height: 1;
-  padding: 10px 30px;
+  padding: 16px 30px;
   white-space: nowrap;
 }
 
@@ -461,7 +465,7 @@ a {
 .ticker {
   background: var(--blue);
   overflow: hidden;
-  padding: 14px 0;
+  padding: 20px 0;
 }
 
 .ticker__track {
@@ -472,7 +476,7 @@ a {
 
 .ticker__item {
   color: #fff;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 700;
   padding: 0 40px;
   white-space: nowrap;
@@ -769,7 +773,7 @@ a {
 }
 
 .rating-label {
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 600;
   color: #000;
 }
@@ -781,7 +785,7 @@ a {
 }
 
 .rating-num {
-  font-size: 40px;
+  font-size: 24px;
   font-weight: 700;
   color: #000;
 }
@@ -897,7 +901,7 @@ a {
 }
 
 .give-review__body {
-  font-size: clamp(16px, 1.5vw, 22px);
+  font-size: clamp(16px, 1.67vw, 24px);
   font-weight: 600;
   color: #242424;
   line-height: 1.5;
@@ -1022,7 +1026,7 @@ a {
 }
 
 .brands__dealer {
-  font-size: 28px;
+  font-size: 36px;
   font-weight: 400;
   color: #000;
   text-align: center;
@@ -1107,7 +1111,7 @@ a {
 .where-we-operate__map-card img {
   width: 100%;
   display: block;
-  height: 480px;
+  height: 532px;
   object-fit: cover;
   object-position: center;
 }
@@ -1117,8 +1121,8 @@ a {
   top: 50%;
   left: 42%;
   transform: translate(-50%, -50%);
-  width: 280px;
-  height: 280px;
+  width: 472px;
+  height: 472px;
   border-radius: 50%;
   border: 2px solid rgba(0, 0, 0, 0.45);
   pointer-events: none;
@@ -1197,7 +1201,7 @@ a {
 }
 
 .footer__brand-name {
-  font-size: 32px;
+  font-size: 40px;
   font-weight: 700;
   color: #fff;
   margin-bottom: 14px;
@@ -1256,10 +1260,10 @@ a {
 }
 
 .footer__contact-label {
-  font-size: 11px;
-  font-weight: 700;
+  font-size: 16px;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.06em;
   color: rgba(255, 255, 255, 0.5);
 }
 
@@ -1360,7 +1364,7 @@ a.footer__contact-value:hover {
   /* Other sections */
   .where-we-operate__header { flex-direction: column; align-items: flex-start; }
   .where-we-operate__map-card img { height: 360px; }
-  .where-we-operate__circle { width: 200px; height: 200px; }
+  .where-we-operate__circle { width: 320px; height: 320px; }
   .footer__contact-row { grid-template-columns: 1fr; }
   .footer__contact-block:not(:last-child) { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); }
   .footer__contact-block { padding: 28px 24px; }
