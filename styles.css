@@ -232,7 +232,7 @@ a {
 }
 
 .nav__logo {
-  font-size: clamp(18px, 2vw, 28px);
+  font-size: clamp(16px, 3.33vw, 48px);
   font-weight: 900;
   color: #000;
   letter-spacing: 0.03em;
