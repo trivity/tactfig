@@ -969,10 +969,14 @@ a {
   top: -42px;
   width: 474px;
   height: 493px;
-  object-fit: cover;
-  border-radius: 10px;
-  box-shadow: 14px 14px 34px rgba(0,0,0,0.20);
+  object-fit: contain;
+  object-position: bottom;
   pointer-events: none;
+}
+
+/* Figma: accent is 22px left of heading edge (x=1815 vs heading x=1837) */
+.cta-hvac .section__accent {
+  left: -22px;
 }
 
 .cta-hvac__content {
