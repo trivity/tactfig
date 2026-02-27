@@ -75,7 +75,7 @@ a {
 .section__accent {
   position: absolute;
   top: -20px;
-  left: -8px;
+  left: -20px;
   width: 38px;
   height: 42px;
   filter: brightness(0);
@@ -525,11 +525,11 @@ a {
   margin-bottom: 14px;
 }
 
-/* Services accent reuses .section__accent — no extra rule needed */
+/* Services accent — same positioning as .section__accent */
 .services__accent {
   position: absolute;
   top: -20px;
-  left: -8px;
+  left: -20px;
   width: 38px;
   height: 42px;
   filter: brightness(0);
@@ -980,7 +980,7 @@ a {
   pointer-events: none;
 }
 
-/* Figma: accent is 22px left of heading edge (x=1815 vs heading x=1837) */
+/* CTA section accent is 2px further left than global default */
 .cta-hvac .section__accent {
   left: -22px;
 }
@@ -1212,10 +1212,8 @@ a {
 
 .get-in-touch__photo {
   flex-shrink: 0;
-  width: min(480px, 45vw);
-  border-radius: 20px;
+  width: min(570px, 45vw);
   overflow: hidden;
-  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12);
 }
 
 .get-in-touch__photo img {
