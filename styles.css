@@ -914,6 +914,12 @@ a {
   flex-wrap: wrap;
 }
 
+.give-review__stars {
+  display: inline-block;
+  font-style: normal;
+  letter-spacing: 2px;
+}
+
 .give-review__owner {
   margin-top: 8px;
 }
@@ -950,7 +956,7 @@ a {
 .cta-hvac {
   position: relative;
   background: linear-gradient(to bottom, rgb(1,46,153), rgb(2,78,255));
-  min-height: 547px;
+  min-height: 640px;
   overflow: visible;
 }
 
@@ -966,9 +972,9 @@ a {
 .cta-hvac__truck {
   position: absolute;
   right: 135px;
-  top: -42px;
-  width: 474px;
-  height: 493px;
+  top: -70px;
+  width: 580px;
+  height: 620px;
   object-fit: contain;
   object-position: bottom;
   pointer-events: none;
@@ -999,7 +1005,7 @@ a {
 }
 
 .cta-hvac__heading {
-  font-size: 70px;
+  font-size: 84px;
   font-weight: 900;
   color: #fff;
   line-height: 1;
@@ -1025,59 +1031,108 @@ a {
    TRUSTED BRANDS
    =========================== */
 .brands {
-  padding: 96px 0;
+  padding: 96px 0 0;
   background: #fff;
+  overflow: hidden;
 }
 
-.brands__dealer {
-  font-size: 36px;
-  font-weight: 400;
-  color: #000;
+/* Header row: title+subtitle left, dealer badge right */
+.brands__header-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 60px;
+}
+
+.brands__header-text {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* "Licensed Dealer since 2009" badge — right-aligned block */
+.brands__dealer-badge {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--blue);
+  color: #fff;
+  border-radius: 8px;
+  padding: 18px 28px;
+  min-width: 180px;
   text-align: center;
 }
 
-.brands__logos {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-  align-items: center;
-}
-
-.brand-item {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px 32px;
-  background: #f5f5f5;
-  border-radius: 12px;
-  border: 1px solid #e8e8e8;
-  min-width: 140px;
-  transition: box-shadow 0.2s;
-}
-
-.brand-item:hover {
-  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-}
-
-.brand-item--logo img {
-  max-height: 44px;
-  max-width: 130px;
-  object-fit: contain;
-  filter: grayscale(100%);
-  transition: filter 0.2s;
-}
-
-.brand-item--logo:hover img {
-  filter: grayscale(0%);
-}
-
-.brand-item--text {
-  font-size: 18px;
+.brands__dealer-label {
+  font-size: 14px;
   font-weight: 700;
-  color: #333;
-  letter-spacing: 0.02em;
-  min-height: 44px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.85;
+}
+
+.brands__dealer-year {
+  font-size: 28px;
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+/* Marquee wrapper — overflow hidden with fade-edge overlays */
+.brands__marquee-wrap {
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+  border-top: 1px solid #e8e8e8;
+}
+
+.brands__marquee-track {
+  display: flex;
+  width: max-content;
+  animation: brands-scroll 28s linear infinite;
+}
+
+@keyframes brands-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Each logo tile — off-white card, matches Figma #FAFAFA tiles */
+.brand-logo-tile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 95px;
+  padding: 0 40px;
+  background: #fafafa;
+  border-right: 1px solid #e8e8e8;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* Fade-out edges — left and right gradient overlays like Figma white-shade group */
+.brands__fade {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 200px;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.brands__fade--left {
+  left: 0;
+  background: linear-gradient(to right, #fff 0%, rgba(255,255,255,0) 100%);
+}
+
+.brands__fade--right {
+  right: 0;
+  background: linear-gradient(to left, #fff 0%, rgba(255,255,255,0) 100%);
 }
 
 /* ===========================
@@ -1219,14 +1274,14 @@ a {
   margin: 0 auto;
 }
 
-/* Contact row — spans full container width; bright top/bottom borders match Figma */
+/* Contact row — spans full container width; subtle separators match Figma Vector 3/4 */
 .footer__contact-row {
   position: relative;
   z-index: 2;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  border-top: 1px solid rgba(255, 255, 255, 0.7);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.7);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .footer__contact-block {
@@ -1295,7 +1350,7 @@ a.footer__contact-value:hover {
   align-items: center;
   justify-content: space-between;
   padding: 14px 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.7);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .footer__bottom p {
@@ -1419,9 +1474,10 @@ a.footer__contact-value:hover {
   /* Other */
   .give-review { padding: 64px 0; }
   .give-review__photo { width: 100%; }
-  .brands { padding: 64px 0; }
-  .brands__logos { gap: 12px; }
-  .brand-item { min-width: 100px; padding: 14px 20px; }
+  .brands { padding: 64px 0 0; }
+  .brands__header-row { flex-direction: column; gap: 24px; }
+  .brand-logo-tile { height: 75px; padding: 0 24px; font-size: 16px; }
+  .brands__fade { width: 80px; }
   /* CTA HVAC mobile */
   .cta-hvac { min-height: auto; overflow: hidden; }
   .cta-hvac__truck { display: none; }
