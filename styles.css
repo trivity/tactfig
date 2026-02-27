@@ -335,37 +335,32 @@ a {
   margin-bottom: 4px; /* Figma gap between top frame and bottom frame = -10 + 4 */
 }
 
-/* ---- Offer Badge ---- */
+/* ---- Offer Badge / Ribbon ---- */
 .offer-badge {
   display: inline-flex;
   align-items: center;
 }
 
-/* Pentagon / arrow ear shapes on left and right */
-.offer-badge__ear {
-  display: block;
-  width: 0;
-  height: 0;
-  border-top: 30px solid transparent;
-  border-bottom: 31px solid transparent;
-}
+/* Ears are now invisible — shape is carried by the pill's clip-path */
+.offer-badge__ear { display: none; }
 
-.offer-badge__ear--left {
-  border-right: 32px solid var(--navy);
-}
-
-.offer-badge__ear--right {
-  border-left: 32px solid var(--navy);
-}
-
+/* Classic hexagonal ribbon shape: both ends taper to a centre point */
 .offer-badge__pill {
-  background: var(--blue);      /* rgb(2,78,255) */
+  background: var(--blue);
   color: #fff;
   font-size: 30px;
   font-weight: 900;
   line-height: 1;
-  padding: 16px 30px;
+  padding: 16px 56px;
   white-space: nowrap;
+  clip-path: polygon(
+    36px 0%,
+    calc(100% - 36px) 0%,
+    100% 50%,
+    calc(100% - 36px) 100%,
+    36px 100%,
+    0% 50%
+  );
 }
 
 
@@ -625,6 +620,13 @@ a {
   border-radius: 50%;
 }
 
+/* Emergency SVG tends to render larger — constrain to visual match */
+.svc-card__icon-wrap--emergency img {
+  width: 65px;
+  height: 65px;
+  border-radius: 0;
+}
+
 .svc-card__text {
   display: flex;
   flex-direction: column;
@@ -882,7 +884,7 @@ a {
    =========================== */
 .give-review {
   padding: 96px 0;
-  background: #fff;
+  background: #f5f5f5;
 }
 
 .give-review__inner {
@@ -932,12 +934,15 @@ a {
   color: #555;
 }
 
-/* Photo: no card styling — transparent bg, diagonal slant on right edge */
+/* Photo fades to transparent along the diagonal inward edge */
 .give-review__photo {
   flex-shrink: 0;
   width: min(480px, 45vw);
   overflow: hidden;
-  clip-path: polygon(0 0, 100% 0, 90% 100%, 0 100%);
+  /* ~96° = nearly horizontal gradient with a slight downward tilt,
+     matching the diagonal where the image meets the gray background */
+  -webkit-mask-image: linear-gradient(96deg, black 58%, transparent 92%);
+          mask-image: linear-gradient(96deg, black 58%, transparent 92%);
 }
 
 .give-review__photo img {
