@@ -337,29 +337,32 @@ a {
 
 /* ---- Offer Badge / Ribbon ---- */
 .offer-badge {
-  display: inline-flex;
-  align-items: center;
+  display: block;
+  width: 100%;
+  max-width: 860px;
 }
 
-/* Ears are now invisible — shape is carried by the pill's clip-path */
 .offer-badge__ear { display: none; }
 
-/* Classic hexagonal ribbon shape: both ends taper to a centre point */
+/* Full-width banner ribbon: inward V-notches on both ends */
 .offer-badge__pill {
   background: var(--blue);
   color: #fff;
   font-size: 30px;
   font-weight: 900;
   line-height: 1;
-  padding: 16px 56px;
+  padding: 18px 72px;
+  text-align: center;
   white-space: nowrap;
+  width: 100%;
+  display: block;
   clip-path: polygon(
-    36px 0%,
-    calc(100% - 36px) 0%,
-    100% 50%,
-    calc(100% - 36px) 100%,
-    36px 100%,
-    0% 50%
+    0% 0%,
+    100% 0%,
+    calc(100% - 40px) 50%,
+    100% 100%,
+    0% 100%,
+    40px 50%
   );
 }
 
@@ -1405,7 +1408,8 @@ a.footer__contact-value:hover {
   /* Hero */
   .hero__content { padding: 60px 40px 80px; }
   .hero__headline { font-size: 48px; }
-  .offer-badge__pill { font-size: 22px; }
+  .offer-badge__pill { font-size: 22px; padding: 14px 60px; }
+  .offer-badge { max-width: 660px; }
 
   /* Services */
   .services__inner { padding: 80px 40px 60px; }
@@ -1449,10 +1453,10 @@ a.footer__contact-value:hover {
   .hero { min-height: auto; }
   .hero__content { padding: 40px 20px 60px; }
   .hero__headline { font-size: 32px; }
-  .offer-badge__pill { font-size: 18px; padding: 10px 20px; }
-  .offer-badge__ear { border-top-width: 24px; border-bottom-width: 24px; }
-  .offer-badge__ear--left { border-right-width: 22px; }
-  .offer-badge__ear--right { border-left-width: 22px; }
+  .offer-badge { max-width: 100%; }
+  .offer-badge__pill { font-size: 16px; padding: 12px 44px;
+    clip-path: polygon(0% 0%, 100% 0%, calc(100% - 28px) 50%, 100% 100%, 0% 100%, 28px 50%);
+  }
 
 
   /* Services */
