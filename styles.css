@@ -1170,6 +1170,8 @@ a {
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 4px 32px rgba(0, 0, 0, 0.12);
+  padding: 12px;
+  background: #fff;
 }
 
 .where-we-operate__map-card img {
