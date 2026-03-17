@@ -71,21 +71,7 @@ a {
   padding-bottom: 22px;
 }
 
-/* Accent mark — dark version (light-bg sections) */
-.section__accent {
-  position: absolute;
-  top: -20px;
-  left: -20px;
-  width: 38px;
-  height: 42px;
-  filter: brightness(0);
-  pointer-events: none;
-}
 
-/* White version — dark-bg sections (reviews, CTA) */
-.section__accent--white {
-  filter: none;
-}
 
 /* Inline span wrapping the last word so the underline anchors below it */
 .title-last-word {
@@ -308,7 +294,7 @@ a {
 .hero__overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.66); /* exact Figma value */
+  background: rgba(0, 0, 0, 0.45);
 }
 
 /* Hero content — vertical stack, centered, padding matches Figma (80/135/110/135) */
@@ -333,6 +319,84 @@ a {
   align-items: center;
   gap: 18px; /* Figma gap=18 between badge and countdown */
   margin-bottom: 32px;
+}
+
+/* ---- Hero Countdown & Offer Reveal ---- */
+.hero-countdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 140px;
+  width: 100%;
+  max-width: 800px;
+}
+
+#confetti-canvas {
+  position: absolute;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 400px;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.countdown-number {
+  font-size: 120px;
+  font-weight: 900;
+  color: #fff;
+  text-align: center;
+  line-height: 1;
+  text-shadow: 0 4px 30px rgba(0,0,0,0.5);
+  animation: countdown-pulse 0.8s ease-in-out;
+  z-index: 5;
+}
+
+.countdown-number.hidden {
+  display: none;
+}
+
+@keyframes countdown-pulse {
+  0%   { transform: scale(0.3); opacity: 0; }
+  50%  { transform: scale(1.2); opacity: 1; }
+  70%  { transform: scale(0.95); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.offer-reveal {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0;
+  z-index: 5;
+  animation: offer-pop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.offer-reveal.visible {
+  display: flex;
+}
+
+@keyframes offer-pop {
+  0%   { transform: scale(0); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.offer-reveal__amount {
+  font-size: clamp(72px, 10vw, 120px);
+  font-weight: 900;
+  color: #ff0000;
+  line-height: 1;
+  text-shadow: 0 4px 20px rgba(255,0,0,0.4);
+}
+
+.offer-reveal__sub {
+  font-size: clamp(18px, 2.5vw, 28px);
+  font-weight: 600;
+  color: #fff;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.5);
 }
 
 /* ---- Offer Badge / Ribbon ---- */
@@ -383,14 +447,7 @@ a {
   justify-content: center;
 }
 
-.hero__accent {
-  position: absolute;
-  left: 25px;
-  top: -19px;
-  width: 51px;
-  height: 55px;
-  pointer-events: none;
-}
+
 
 .hero__headline {
   font-size: 74px;
@@ -496,7 +553,7 @@ a {
 .services__inner {
   max-width: 1440px;
   margin: 0 auto;
-  padding: 160px 135px 100px;
+  padding: 80px 135px 100px;
   display: flex;
   flex-direction: column;
   gap: 35px; /* Figma gap=35 between header row and content row */
@@ -523,16 +580,6 @@ a {
   margin-bottom: 14px;
 }
 
-/* Services accent — same positioning as .section__accent */
-.services__accent {
-  position: absolute;
-  top: -20px;
-  left: -20px;
-  width: 38px;
-  height: 42px;
-  filter: brightness(0);
-  pointer-events: none;
-}
 
 .services__title {
   font-size: 70px;
@@ -1096,7 +1143,7 @@ a {
 .brands__marquee-track {
   display: flex;
   width: max-content;
-  animation: brands-scroll 28s linear infinite;
+  animation: brands-scroll 56s linear infinite;
 }
 
 @keyframes brands-scroll {
@@ -1498,6 +1545,42 @@ a.footer__contact-value:hover {
   .footer__contact-value { font-size: 15px; }
   .get-in-touch { padding: 64px 0; }
   .section__title { font-size: 32px; }
+}
+
+/* ===========================
+   WHERE WE OPERATE
+   =========================== */
+.where-we-operate {
+  position: relative;
+  overflow: hidden;
+}
+
+.where-we-operate__bg {
+  position: absolute;
+  inset: 0;
+}
+
+.where-we-operate__bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.where-we-operate__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.40);
+}
+
+.where-we-operate__header {
+  position: relative;
+  z-index: 2;
+}
+
+.where-we-operate__map-card {
+  position: relative;
+  z-index: 2;
 }
 
 /* ===========================

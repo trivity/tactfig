@@ -50,49 +50,98 @@
   const nav = document.getElementById('nav');
 })();
 
-/* ---- Countdown timer ---- */
+/* ---- Hero 3-2-1 Countdown → Confetti → Offer Reveal ---- */
 (function () {
-  // Set target: 2 days, 8 hours from now stored in sessionStorage so it persists on reload
-  const KEY = 'tac_offer_end';
-  let endTime = parseInt(sessionStorage.getItem(KEY) || '0', 10);
-  const now = Date.now();
+  const countdownEl = document.getElementById('countdown-number');
+  const offerEl = document.getElementById('offer-reveal');
+  const canvasEl = document.getElementById('confetti-canvas');
+  if (!countdownEl || !offerEl || !canvasEl) return;
 
-  if (!endTime || endTime < now) {
-    // 2 days + 8 hours
-    endTime = now + (2 * 24 * 60 * 60 * 1000) + (8 * 60 * 60 * 1000);
-    sessionStorage.setItem(KEY, endTime);
+  let count = 3;
+  countdownEl.textContent = count;
+
+  function pulseNumber() {
+    // Re-trigger the CSS animation
+    countdownEl.style.animation = 'none';
+    countdownEl.offsetHeight; // reflow
+    countdownEl.style.animation = 'countdown-pulse 0.8s ease-in-out';
+    countdownEl.textContent = count;
   }
 
-  const elDays = document.getElementById('cd-days');
-  const elHours = document.getElementById('cd-hours');
-  const elMins = document.getElementById('cd-minutes');
-  const elSecs = document.getElementById('cd-seconds');
+  pulseNumber();
 
-  if (!elDays || !elHours || !elMins || !elSecs) return;
-
-  function pad(n) {
-    return String(Math.max(0, n)).padStart(2, '0');
-  }
-
-  function tick() {
-    const remaining = Math.max(0, endTime - Date.now());
-    const totalSecs = Math.floor(remaining / 1000);
-    const days  = Math.floor(totalSecs / 86400);
-    const hours = Math.floor((totalSecs % 86400) / 3600);
-    const mins  = Math.floor((totalSecs % 3600) / 60);
-    const secs  = totalSecs % 60;
-
-    elDays.textContent  = pad(days);
-    elHours.textContent = pad(hours);
-    elMins.textContent  = pad(mins);
-    elSecs.textContent  = pad(secs);
-
-    if (remaining > 0) {
-      requestAnimationFrame(tick);
+  const interval = setInterval(() => {
+    count--;
+    if (count > 0) {
+      pulseNumber();
+    } else {
+      clearInterval(interval);
+      countdownEl.classList.add('hidden');
+      offerEl.classList.add('visible');
+      fireConfetti(canvasEl);
     }
-  }
+  }, 1000);
 
-  tick();
+  function fireConfetti(canvas) {
+    const ctx = canvas.getContext('2d');
+    const W = 800;
+    const H = 400;
+    canvas.width = W;
+    canvas.height = H;
+
+    const colors = ['#ff0000', '#ff4444', '#ffcc00', '#ffffff', '#0055ff', '#ff6600', '#00cc44'];
+    const particles = [];
+    const TOTAL = 150;
+
+    for (let i = 0; i < TOTAL; i++) {
+      particles.push({
+        x: W / 2 + (Math.random() - 0.5) * 60,
+        y: H / 2,
+        vx: (Math.random() - 0.5) * 16,
+        vy: (Math.random() - 1) * 14 - 4,
+        w: Math.random() * 10 + 4,
+        h: Math.random() * 6 + 3,
+        color: colors[Math.floor(Math.random() * colors.length)],
+        rot: Math.random() * 360,
+        rotSpeed: (Math.random() - 0.5) * 15,
+        gravity: 0.25 + Math.random() * 0.15,
+        opacity: 1,
+        decay: 0.008 + Math.random() * 0.008,
+      });
+    }
+
+    let frame;
+    function draw() {
+      ctx.clearRect(0, 0, W, H);
+      let alive = 0;
+
+      for (const p of particles) {
+        if (p.opacity <= 0) continue;
+        alive++;
+        p.x += p.vx;
+        p.vy += p.gravity;
+        p.y += p.vy;
+        p.rot += p.rotSpeed;
+        p.opacity -= p.decay;
+
+        ctx.save();
+        ctx.translate(p.x, p.y);
+        ctx.rotate((p.rot * Math.PI) / 180);
+        ctx.globalAlpha = Math.max(0, p.opacity);
+        ctx.fillStyle = p.color;
+        ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+        ctx.restore();
+      }
+
+      if (alive > 0) {
+        frame = requestAnimationFrame(draw);
+      } else {
+        ctx.clearRect(0, 0, W, H);
+      }
+    }
+
+    draw();
+  }
 })();
 
 /* ---- Review tabs ---- */
@@ -148,4 +197,35 @@
       }
     });
   });
+})();
+
+/* ---- Brands marquee: dynamically clone items to fill any viewport ---- */
+(function () {
+  const track = document.querySelector('.brands__marquee-track');
+  if (!track) return;
+
+  // Grab the original set of brand tiles (first 8)
+  const baseTiles = Array.from(track.querySelectorAll('.brand-logo-tile')).slice(0, 8);
+  if (!baseTiles.length) return;
+
+  // Clear the track and rebuild with enough clones
+  track.innerHTML = '';
+
+  // We need enough tiles so the total width >= 2× viewport.
+  // Each tile is roughly 160-200px wide, so calculate how many sets we need.
+  const viewportW = window.innerWidth;
+  const estTileWidth = 180; // average tile width with padding
+  const tilesPerSet = baseTiles.length;
+  const setsNeeded = Math.ceil((viewportW * 3) / (tilesPerSet * estTileWidth));
+  const totalSets = Math.max(setsNeeded, 4); // minimum 4 sets
+
+  for (let s = 0; s < totalSets; s++) {
+    baseTiles.forEach(tile => {
+      track.appendChild(tile.cloneNode(true));
+    });
+  }
+
+  // Adjust animation duration proportionally: 7s per set for smooth speed
+  const duration = totalSets * 7;
+  track.style.animationDuration = duration + 's';
 })();
