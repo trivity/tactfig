@@ -204,8 +204,8 @@
   const track = document.querySelector('.brands__marquee-track');
   if (!track) return;
 
-  // Grab the original set of brand tiles (first 8)
-  const baseTiles = Array.from(track.querySelectorAll('.brand-logo-tile')).slice(0, 8);
+  // Grab the original set of brand tiles (first 10)
+  const baseTiles = Array.from(track.querySelectorAll('.brand-logo-tile')).slice(0, 10);
   if (!baseTiles.length) return;
 
   // Clear the track and rebuild with enough clones
